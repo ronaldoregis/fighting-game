@@ -254,8 +254,10 @@ window.addEventListener('keydown', (event) => {
                 player.lastKey = 'd';
                 break;
             case 'w':
-                keys.moveUp.pressed = true;
-                player.velocity.y = -20;
+                if(player.velocity.y === 0) {
+                    keys.moveUp.pressed = true;
+                    player.velocity.y = -20;
+                }
                 break;
             case ' ':
                 player.attack();
@@ -274,8 +276,10 @@ window.addEventListener('keydown', (event) => {
                 enemy.lastKey = 'ArrowRight';
                 break;
             case 'ArrowUp':
-                keys.ArrowUp.pressed = true;
-                enemy.velocity.y = -20;
+                if(enemy.velocity.y === 0) {
+                    keys.ArrowUp.pressed = true;
+                    enemy.velocity.y = -20;
+                }
                 break;
             case 'ArrowDown':
                 enemy.attack();
