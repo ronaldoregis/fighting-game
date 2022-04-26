@@ -98,6 +98,14 @@ class Fighter extends Sprite {
         // canvasContext.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.with, this.attackBox.height);
         
         this.position.y += this.velocity.y;
+        if(this.position.x < 0) {
+            this.position.x = 0;
+        }
+        
+        if (this.position.x > 1024 - this.size.width) {
+            this.position.x = 1024 - this.size.width;
+        }
+
         this.position.x += this.velocity.x;
 
         if (this.position.y + this.size.height + this.velocity.y >= canvas.height - 95) {

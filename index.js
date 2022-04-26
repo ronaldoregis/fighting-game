@@ -13,7 +13,7 @@ canvasContext.fillRect(0,0, canvas.width, canvas.height);
 
 const player = new Fighter({
     position: {
-        x: 0,
+        x: 261,
         y: 0
     },
     velocity: {
@@ -21,7 +21,7 @@ const player = new Fighter({
         y: 0
     },
     size: {
-        width: 50,
+        width: 70,
         height: 100
     },
     imageSrc: './img/samuraiMack/Idle.png',
@@ -73,7 +73,7 @@ const player = new Fighter({
 
 const enemy = new Fighter({
     position: {
-        x: 400,
+        x: 712,
         y: 0
     },
     velocity: {
@@ -81,7 +81,7 @@ const enemy = new Fighter({
         y: 0
     },
     size: {
-        width: 50,
+        width: 60,
         height: 100
     },
     imageSrc: './img/kenji/Idle.png',
@@ -167,7 +167,15 @@ function animate() {
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
 
     player.update();
+    // overlay player
+    // canvasContext.fillStyle = 'rgba(255,255,255, 0.35)';
+    // canvasContext.fillRect(player.position.x, player.position.y, player.size.width, player.size.height);
+
+
     enemy.update();
+    // overlay enemy
+    // canvasContext.fillStyle = 'rgba(255,255,255, 0.35)';
+    // canvasContext.fillRect(enemy.position.x, enemy.position.y, enemy.size.width, enemy.size.height);
 
     player.velocity.x = 0;
     enemy.velocity.x = 0;
@@ -215,7 +223,7 @@ function animate() {
         });
     }
 
-    if(player.isAttacking && player.framesCurrent == 4){
+    if(player.isAttacking && player.framesCurrent === 4){
         player.isAttacking = false;
     }
 
@@ -230,7 +238,7 @@ function animate() {
         });
     }
 
-    if(enemy.isAttacking && enemy.framesCurrent == 2){
+    if(enemy.isAttacking && enemy.framesCurrent === 2){
         enemy.isAttacking = false;
     }
 
